@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Lucky Sevens</string>
-    <string name="facebook_app_id">1170106766526138</string>
-    <string name="fb_login_protocol_scheme">fb1170106766526138</string>
+    <string name="facebook_app_id">636856667076176</string>
+    <string name="fb_login_protocol_scheme">fb636856667076176</string>
     <string name="start_game">Start Game</string>
-    <string name="push">Let\'s go!</string>
+    <string name="push">Счастливые часы, время пошло!</string>
 </resources>

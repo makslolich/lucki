@@ -2,11 +2,11 @@ package com.superseven.goose.strategy
 
 import android.widget.Button
 
-import com.superseven.goose.model.Block
+import com.superseven.goose.model.GamePartBl
 
-interface ContentStrategy {
+interface ContentStragy {
 
-    fun applyViewContent(cellButton: Button, block: Block, cellSize: Int)
+    fun applyViewContent(cellButton: Button, gamePartBl: GamePartBl, cellSize: Int)
 
     fun getFinishImageId() : Int
 

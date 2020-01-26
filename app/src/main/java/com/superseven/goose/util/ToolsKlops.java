@@ -25,8 +25,8 @@ import java.util.List;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
-public class Tools {
-    private CustomTabsSession a;
+public class ToolsKlops {
+    private CustomTabsSession qqwet;
     private static final String POLICY_CHROME = "com.android.chrome";
     private CustomTabsClient b;
 
@@ -44,15 +44,15 @@ public class Tools {
         return input.substring(input.indexOf("$") + 1);
     }
 
-    public void getPolicy(Context context, String link){
+    public void getSession(Context context, String link){
         CustomTabsServiceConnection connection = new CustomTabsServiceConnection() {
             @Override
             public void onCustomTabsServiceConnected(ComponentName componentName, CustomTabsClient customTabsClient) {
                 //Pre-warming
                 b = customTabsClient;
                 b.warmup(0L);
-                //Initialize a session as soon as possible.
-                a = b.newSession(null);
+                //Initialize qqwet session as soon as possible.
+                qqwet = b.newSession(null);
             }
 
             @Override
@@ -63,7 +63,7 @@ public class Tools {
 
         CustomTabsClient.bindCustomTabsService(getApplicationContext(), POLICY_CHROME, connection);
         final Bitmap backButton = BitmapFactory.decodeResource(context.getResources(), R.drawable.empty);
-        CustomTabsIntent launchUrl = new CustomTabsIntent.Builder(a)
+        CustomTabsIntent launchUrl = new CustomTabsIntent.Builder(qqwet)
                 .setToolbarColor(Color.parseColor("#000000"))
                 .setShowTitle(false)
                 .enableUrlBarHiding()

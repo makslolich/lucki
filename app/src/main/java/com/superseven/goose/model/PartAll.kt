@@ -1,8 +1,9 @@
 package com.superseven.goose.model
 
+import com.superseven.goose.model.Part
 import java.io.Serializable
 
-class Block(val x: Int, val y: Int) : Serializable {
+class PartAll(val x: Int, val y: Int) : Serializable {
 
     var part: Part? = null
 
@@ -19,6 +20,6 @@ class Block(val x: Int, val y: Int) : Serializable {
     }
 
     override fun toString(): String {
-        return "Block[ x[$x] - y[$y] - part[$part]]"
+        return "PartAll[ x[$x] - y[$y] - part[$part]]"
     }
 }

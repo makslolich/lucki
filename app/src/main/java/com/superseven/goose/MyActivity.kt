@@ -6,21 +6,21 @@ import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.superseven.goose.GameplayConstants.FIELD_CELLS_SIZE
-import com.superseven.goose.model.ContentType
-import com.superseven.goose.model.ContentType.ORIGINAL
-import com.superseven.goose.model.ContentType.PICTURE
+import com.superseven.goose.model.ConstrType
+import com.superseven.goose.model.ConstrType.ORIGINAL
+import com.superseven.goose.model.ConstrType.PICTURE
 import com.superseven.goose.model.Game
-import com.superseven.goose.strategy.ContentStrategy
-import com.superseven.goose.strategy.OriginalStrategy
-import com.superseven.goose.strategy.PictureStrategy
+import com.superseven.goose.strategy.ContentStragy
+import com.superseven.goose.strategy.OriginalStragy
+import com.superseven.goose.strategy.PictureStragy
 
 
-class HomeActivity : AppCompatActivity() {
+class MyActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val fieldLayout = findViewById<FrameLayout>(R.id.field)
+        val fieldLayout = findViewById<FrameLayout>(R.id.partRow)
         init(fieldLayout, intent)
     }
 
@@ -30,13 +30,13 @@ class HomeActivity : AppCompatActivity() {
         game.init(fieldLayout)
     }
 
-    private fun getStrategy(context: Context, intent: Intent): ContentStrategy {
-        val contentType = ContentType.valueOf(intent.getStringExtra(IntentConstants.CONTENT_TYPE_PARAM_NAME))
+    private fun getStrategy(context: Context, intent: Intent): ContentStragy {
+        val contentType = ConstrType.valueOf(intent.getStringExtra(IntentConstants.CONTENT_TYPE_PARAM_NAME))
         return when (contentType) {
-            ORIGINAL -> OriginalStrategy(R.drawable.srawbr, FIELD_CELLS_SIZE, FIELD_CELLS_SIZE)
+            ORIGINAL -> OriginalStragy(R.drawable.srawbr, FIELD_CELLS_SIZE, FIELD_CELLS_SIZE)
             PICTURE -> {
                 val imageResId = intent.getIntExtra(IntentConstants.IMAGE_RES_ID_PARAM_NAME, 0)
-                return PictureStrategy(imageResId, FIELD_CELLS_SIZE, FIELD_CELLS_SIZE, context)
+                return PictureStragy(imageResId, FIELD_CELLS_SIZE, FIELD_CELLS_SIZE, context)
             }
         }
     }

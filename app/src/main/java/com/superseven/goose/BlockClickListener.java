@@ -5,8 +5,8 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.view.View;
 
-import com.superseven.goose.model.Block;
-import com.superseven.goose.model.Field;
+import com.superseven.goose.model.GamePartBl;
+import com.superseven.goose.model.PartRow;
 import com.superseven.goose.model.Part;
 import com.superseven.goose.sound.SoundPlayer;
 
@@ -15,18 +15,18 @@ import static com.superseven.goose.GameplayConstants.FIELD_CELLS_SIZE;
 
 public class BlockClickListener implements View.OnClickListener {
 
-    private final Field field;
+    private final PartRow partRow;
     private final int cellSize;
     private final Context context;
     private final SoundPlayer sp;
     private final int imageResId;
 
-    private Block current;
+    private GamePartBl current;
 
-    public BlockClickListener(Block block, Field field, int cellSize, Context context, SoundPlayer sp,
+    public BlockClickListener(GamePartBl gamePartBl, PartRow partRow, int cellSize, Context context, SoundPlayer sp,
                               int imageResId) {
-        this.current = block;
-        this.field = field;
+        this.current = gamePartBl;
+        this.partRow = partRow;
         this.cellSize = cellSize;
         this.context = context;
         this.sp = sp;
@@ -35,7 +35,7 @@ public class BlockClickListener implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        sp.play();
+        sp.player();
         try {
             if (current.isNotEmpty()) {
                 int x = current.getX();
@@ -58,7 +58,7 @@ public class BlockClickListener implements View.OnClickListener {
     }
 
     private void checkCell(int x, int y) throws Exception {
-        Block checking = field.cell(x, y);
+        GamePartBl checking = partRow.cell(x, y);
         if (checking.isEmpty()) {
             Part currentPart = current.getPart();
             assert currentPart != null;
@@ -83,7 +83,7 @@ public class BlockClickListener implements View.OnClickListener {
     private AnimatorSet createAnimator() {
         AnimatorSet animator = new AnimatorSet();
         animator.setDuration(ANIMATION_SPEED);
-        animator.addListener(new FinishCheckingListener(field, context, imageResId));
+        animator.addListener(new FinishCheckingListener(partRow, context, imageResId));
         return animator;
     }
 

@@ -36,7 +36,7 @@ public class Messages {
     }
 
     private void scheduleMessage(Calendar calendar, Context context, int type) {
-        Intent i = new Intent(context, ReceiverNeed.class);
+        Intent i = new Intent(context, Recver.class);
         i.putExtra(TYPE_EXTRA, type);
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, type, i, PendingIntent.FLAG_UPDATE_CURRENT);

@@ -1,6 +1,6 @@
 package com.superseven.goose.model
 
-enum class ContentType {
+enum class ConstrType {
     ORIGINAL,
     PICTURE
 }

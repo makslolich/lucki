@@ -1,9 +1,8 @@
 package com.superseven.goose.model
 
-import com.superseven.goose.model.Part
 import java.io.Serializable
 
-class Cell(val x: Int, val y: Int) : Serializable {
+class GamePartBl(val x: Int, val y: Int) : Serializable {
 
     var part: Part? = null
 
@@ -20,6 +19,6 @@ class Cell(val x: Int, val y: Int) : Serializable {
     }
 
     override fun toString(): String {
-        return "Cell[ x[$x] - y[$y] - part[$part]]"
+        return "GamePartBl[ x[$x] - y[$y] - part[$part]]"
     }
 }

@@ -2,18 +2,18 @@ package com.superseven.goose.model
 
 import java.io.Serializable
 
-class Field(val height: Int,
-            val width: Int) : Serializable {
+class PartRow(val height: Int,
+              val width: Int) : Serializable {
 
-    private var matrices: Array<Array<Block>>
+    private var matrices: Array<Array<GamePartBl>>
 
     init {
         matrices = Array(height) { x ->
-            Array(width) { y -> Block(x, y) }
+            Array(width) { y -> GamePartBl(x, y) }
         }
     }
 
-    fun cell(x: Int, y: Int): Block {
+    fun cell(x: Int, y: Int): GamePartBl {
         return matrices[x][y]
     }
 

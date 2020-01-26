@@ -5,7 +5,7 @@ import android.view.View
 
 class ClickSoundPlayer(private val view: View) : SoundPlayer {
 
-    override fun play() {
+    override fun player() {
         view.playSoundEffect(SoundEffectConstants.CLICK)
     }
 }

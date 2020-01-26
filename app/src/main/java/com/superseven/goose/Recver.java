@@ -11,7 +11,7 @@ import android.content.Intent;
 import androidx.core.app.NotificationCompat;
 
 
-public class ReceiverNeed extends BroadcastReceiver {
+public class Recver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
